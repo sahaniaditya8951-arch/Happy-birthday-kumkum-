@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise for Archana!</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #ffe6f0; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
+        .page { display: none; width: 90%; }
+        .active { display: block; }
+        .gif { width: 250px; height: 250px; border-radius: 15px; margin-bottom: 20px; }
+        h1 { color: #d63384; font-size: 2em; margin-bottom: 10px; }
+        button { padding: 15px 30px; font-size: 18px; border-radius: 20px; border: none; cursor: pointer; margin: 10px; transition: 0.3s; }
+        #yesBtn { background-color: #ff4d6d; color: white; }
+        #noBtn { background-color: #ced4da; color: white; position: absolute; }
+    </style>
+</head>
+<body>
+
+    <div id="page1" class="page active">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJ4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/du4D0b95V0z3g9L9s1/giphy.gif" class="gif" alt="Cute Panda">
+        <h1>I made something special for you!</h1>
+        <p>Do you wanna see it?</p>
+        <button id="yesBtn" onclick="nextPage()">YES</button>
+        <button id="noBtn" onmouseover="moveNoButton()" ontouchstart="moveNoButton()">NO</button>
+    </div>
+
+    <div id="page2" class="page">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJ4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/gPdCUDQn2vj85JkCgQ/giphy.gif" class="gif" alt="Happy Birthday">
+        <h1>HAPPY BIRTHDAY ARCHANA! 🎂</h1>
+        <p>You are the best thing that ever happened to me.</p>
+        <button id="yesBtn" onclick="nextPage()">Next</button>
+    </div>
+
+    <div id="page3" class="page">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJ4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/osjqK665R6WzG6oD44/giphy.gif" class="gif" alt="Love">
+        <h1>I LOVE YOU SO MUCH! ❤️</h1>
+        <p>May your day be as beautiful as your smile.</p>
+        <button id="yesBtn" onclick="alert('I love you Archana! Happy Birthday!')">Click for Love</button>
+    </div>
+
+    <script>
+        let currentPage = 1;
+
+        function nextPage() {
+            document.getElementById('page' + currentPage).classList.remove('active');
+            currentPage++;
+            document.getElementById('page' + currentPage).classList.add('active');
+        }
+
+        function moveNoButton() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+    </script>
+</body>
+</html>
